@@ -1,3 +1,5 @@
 .env
 go.sum
 go.mod
+server.key
+server.crt
