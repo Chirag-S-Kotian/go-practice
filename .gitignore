@@ -3,3 +3,5 @@ go.sum
 go.mod
 server.key
 server.crt
+Cargo.lock
+target
