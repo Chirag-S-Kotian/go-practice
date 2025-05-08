@@ -1,0 +1,14 @@
+global:
+  scrape_interval: 15s # How often to scrape targets
+scrape_configs:
+  - job_name: 'go-loadbalancer'
+    # This tells Prometheus to scrape your Go app running on the host
+    # host.docker.internal is a special Docker DNS name for the host machine (works on Mac/Windows, might need host IP or extra config on Linux)
+    # If running Linux and host.docker.internal doesn't work, replace it with your machine's internal IP address (e.g., 192.168.1.10)
+    static_configs:
+      - targets: ['host.docker.internal:8080']
+    scheme: https # Your load balancer serves HTTPS on :8080
+    # WARNING: insecure_skip_verify: true is used here because your LB likely uses a self-signed cert for testing.
+    # DO NOT use this in production with untrusted certificates. Configure proper TLS certificate verification instead.
+    tls_config:
+      insecure_skip_verify: true
