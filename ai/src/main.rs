@@ -30,7 +30,7 @@ fn main() -> Result<(), String> {
                 required_input_pattern: Some(LOOK.clone()),
                 required_state_conditions: vec![],
                 target_node_id: "clearing_look".into(),
-                choice_text: None,
+                choice_text: Some("Look around the clearing".into()),
             },
         ],
         entry_effects: vec![],
@@ -75,7 +75,7 @@ fn main() -> Result<(), String> {
                 required_input_pattern: Some(INVENTORY.clone()),
                 required_state_conditions: vec![],
                 target_node_id: "inventory_node".into(),
-                choice_text: None,
+                choice_text: Some("Check your inventory".into()),
             },
         ],
         entry_effects: vec![Effect::SetFlag("glint_present".into(), true)],
@@ -124,10 +124,26 @@ fn main() -> Result<(), String> {
     let initial_narrative = storyteller.start()?;
     println!("{}", initial_narrative);
 
-
     let game_over = false;
 
     while !game_over {
+        println!("\nWhat do you do?");
+        match storyteller.get_available_choices() {
+            Ok(choices) => {
+                if choices.is_empty() {
+                    println!("(No specific options available, try a general action like 'look' or 'inventory')");
+                } else {
+                    for (i, choice) in choices.iter().enumerate() {
+                        if let Some(text) = &choice.choice_text {
+                            println!("{}) {}", i + 1, text);
+                        }
+                    }
+                }
+            }
+            Err(e) => eprintln!("Error getting choices: {}", e),
+        }
+
+
         print!("> ");
         io::stdout().flush().unwrap();
 
@@ -159,8 +175,6 @@ fn main() -> Result<(), String> {
                      narrative
                  };
                 println!("{}", final_narrative);
-
-                // Removed the manual state update for inventory_node
             }
             Err(e) => {
                 eprintln!("Error: {}", e);

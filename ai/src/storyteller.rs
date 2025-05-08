@@ -60,7 +60,8 @@ impl Storyteller {
             match &branch.required_input_pattern {
                 Some(regex) => {
                     // Check for specific patterns first
-                    if regex.is_match(input) {
+                    // Use find() to see if the pattern exists anywhere in the input
+                    if regex.find(input).is_some() {
                         let conditions_met = self.check_state_conditions(&branch.required_state_conditions)?;
                         if conditions_met {
                             // Found a matching and valid specific branch
@@ -77,8 +78,7 @@ impl Storyteller {
                             fallback_branch = Some(branch);
                          }
                     } else {
-                         // Handle case where there's more than one fallback branch if necessary
-                         // For now, we just take the first one found
+
                     }
                 }
             }
@@ -196,12 +196,13 @@ impl Storyteller {
 }
 
 lazy_static! {
-    pub static ref GO_NORTH: Regex = Regex::new(r"^(go|move) north$").expect("Invalid regex");
-    pub static ref GO_EAST: Regex = Regex::new(r"^(go|move) east$").expect("Invalid regex");
-    pub static ref GO_SOUTH: Regex = Regex::new(r"^(go|move) south$").expect("Invalid regex");
-    pub static ref GO_WEST: Regex = Regex::new(r"^(go|move) west$").expect("Invalid regex");
-    pub static ref TAKE_ITEM: Regex = Regex::new(r"^(take|get) (.+)$").expect("Invalid regex");
-    pub static ref LOOK: Regex = Regex::new(r"^look( around)?$").expect("Invalid regex");
-    pub static ref INVENTORY: Regex = Regex::new(r"^inventory$").expect("Invalid regex");
-    pub static ref TALK_TO: Regex = Regex::new(r"^talk to (.+)$").expect("Invalid regex");
+    // Removed the $ anchor from the end of the regex patterns
+    pub static ref GO_NORTH: Regex = Regex::new(r"^(go|move) north").expect("Invalid regex");
+    pub static ref GO_EAST: Regex = Regex::new(r"^(go|move) east").expect("Invalid regex");
+    pub static ref GO_SOUTH: Regex = Regex::new(r"^(go|move) south").expect("Invalid regex");
+    pub static ref GO_WEST: Regex = Regex::new(r"^(go|move) west").expect("Invalid regex");
+    pub static ref TAKE_ITEM: Regex = Regex::new(r"^(take|get) (.+)").expect("Invalid regex");
+    pub static ref LOOK: Regex = Regex::new(r"^look( around)?").expect("Invalid regex");
+    pub static ref INVENTORY: Regex = Regex::new(r"^inventory").expect("Invalid regex");
+    pub static ref TALK_TO: Regex = Regex::new(r"^talk to (.+)").expect("Invalid regex");
 }
