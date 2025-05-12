@@ -1,0 +1,13 @@
+[package]
+name = "emg"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tch = "0.17.0"
+tokenizers = "0.19.1"
+anyhow = "1.0.89"
+rand = "0.8.5"
+
+[profile.release]
+opt-level = 3

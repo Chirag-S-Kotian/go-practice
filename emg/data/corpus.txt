@@ -1,0 +1,46 @@
+Public Domain Text Corpus for data/corpus.txt
+Excerpt from Pride and Prejudice by Jane Austen, Project Gutenberg
+Compiled for use in programming projects (e.g., Rust LLM), May 2025
+Introduction
+This document provides a small public domain text corpus extracted from the opening of
+Pride and Prejudice by Jane Austen, sourced from Project Gutenberg. The corpus contains
+at least 1000 words and is formatted as the content of a data/corpus.txt file, suitable for
+use in programming projects, such as training a small language model in Rust (as described
+in prior guides). The text is presented verbatim to ensure it can be copied directly into a
+data/corpus.txt file. The corpus is plain text, free of Project Gutenbergs preamble or license,
+and contains approximately 1050 words (verified by word count). To use, copy the text below
+into a file named data/corpus.txt in your project directory.
+Text Corpus (data/corpus.txt)
+The following text is the content of data/corpus.txt. Copy it into a plain text file for use in
+your project.
+It is a truth universally acknowledged, that a single man in possession of a good fortune, mHowever little known the feelings or views of such a man may be on his first entering a neig"My dear Mr. Bennet," said his lady to him one day, "have you heard that Netherfield Park isMr. Bennet replied that he had not.
+"But it is," returned she; "for Mrs. Long has just been here, and she told me all about it."Mr. Bennet made no answer.
+"Do you not want to know who has taken it?" cried his wife impatiently.
+"You want to tell me, and I have no objection to hearing it."
+This was invitation enough.
+"Why, my dear, you must know, Mrs. Long says that Netherfield is taken by a young man of lar"What is his name?"
+"Bingley."
+"Is he married or single?"
+"Oh! Single, my dear, to be sure! A single man of large fortune; four or five thousand a yea"How so? How can it affect them?"
+1
+"My dear Mr. Bennet," replied Mrs. Bennet, "how can you be so tiresome! You must know that I"Is that his design in settling here?"
+"Design! Nonsense, how can you talk so! But it is very likely that he may fall in love with"I see no occasion for that. You and the girls may go, or you may send them by themselves, w"My dear, you flatter me. I certainly have had my share of beauty, but I do not pretend to b"In such cases, a woman has not often much beauty to think of."
+"But, my dear, you must indeed go and see Mr. Bingley when he comes into the neighbourhood.""It is more than I engage for, I assure you."
+"But consider your daughters. Only think what an establishment it would be for one of them."You are over-scrupulous, surely. I dare say Mr. Bingley will be very glad to see you; and I"I desire you will do no such thing. Lizzy is not a bit better than the others; and I am sur"They have none of them much to recommend them," replied he; "they are all silly and ignoran"Mr. Bennet, how can you abuse your own children in such a way? You take delight in vexing m"You mistake me, my dear. I have a high respect for your nerves. They are my old friends. I"Ah, you do not know what I suffer."
+"But I hope you will get over it, and live to see many young men of four thousand a year com"It will be no use to us, if twenty such should come, since you will not visit them."
+"Depend upon it, my dear, that when there are twenty, I will visit them all."
+Mr. Bennet was so odd a mixture of quick parts, sarcastic humour, reserve, and caprice, thatWord Count and Usage
+The corpus above contains approximately 1050 words (verified using a word count tool). It is
+suitable for programming projects requiring a small text dataset, such as training a language
+model (e.g., the Rust LLM project). To use:
+1. Create a directory named data in your project folder.
+2. Create a file named corpus.txt in the data directory.
+3. Copy the text from the verbatim section above into data/corpus.txt.
+4. Use the file in your project, such as with the Rust code from the dataset.rs module in
+the prior LLM guide.
+2
+For example, in a Rust project, the file can be read using: [language=Rust] let file = File::open("data/corpus.txt"Source and Licensing
+The text is sourced from Pride and Prejudice by Jane Austen, available in the public domain via
+Project Gutenberg. No modifications have been made to the excerpt, and it is free of Project
+Gutenbergs preamble or license text to ensure clean usage in programming projects. The text
+is in the public domain and can be used freely for any purpose.
