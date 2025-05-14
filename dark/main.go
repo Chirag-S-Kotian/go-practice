@@ -29,9 +29,11 @@ func main() {
 			delete_task(index)
 		} else if choice == 3 {
 			view_tasks()
+		} else if choice == 4 {
+			fmt.Println("Thank you")
+			os.Exit(0)
 		} else {
 			fmt.Println("Invalid choice")
-			os.Exit(0)
 		}
 	}
 }
