@@ -2,15 +2,17 @@ package main
 
 import (
 	"shot/internal/models"
-
+	"shot/internal/routes"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	models.InitDB()
 	r :=gin.Default()
-	r.GET("/ping", func(c *gin.Context){
-		c.JSON(200, gin.H{"message": "pong"})
+	routes.AuthRoutes(r)
+
+	r.GET("/", func(c *gin.Context){
+		c.JSON(200, gin.H{"message": "Youtube  API is running"})
 	})
 
 	r.Run()

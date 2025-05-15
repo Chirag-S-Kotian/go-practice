@@ -3,6 +3,7 @@ package models
 import (
 	"database/sql"
 	_ "github.com/lib/pq"
+	"io/ioutil"
 	"log"
 	"shot/internal/utils"
 )
@@ -16,11 +17,28 @@ func InitDB() {
 	var err error
 	DB, err = sql.Open("postgres", connStr)
 	if err != nil {
-		log.Fatal("Error connecting to DB:", err)
+		log.Fatal("❌ Error connecting to DB:", err)
 	}
-	err = DB.Ping()
+
+	if err = DB.Ping(); err != nil {
+		log.Fatal("❌ DB unreachable:", err)
+	}
+
+	log.Println("✅ Connected to Neon ..")
+
+	runMigrations()
+}
+
+func runMigrations() {
+	schema, err := ioutil.ReadFile("internal/migrations/schema.sql")
 	if err != nil {
-		log.Fatal("db unreachable:", err)
+		log.Fatalf("❌ Failed to read schema.sql: %v", err)
 	}
-	log.Println("connected to neon ..")
+
+	_, err = DB.Exec(string(schema))
+	if err != nil {
+		log.Fatalf("❌ Failed to run migrations: %v", err)
+	}
+
+	log.Println("✅ Database schema migrated")
 }
