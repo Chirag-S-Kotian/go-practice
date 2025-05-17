@@ -2,10 +2,11 @@ package models
 
 import (
 	"database/sql"
-	_ "github.com/lib/pq"
-	"io/ioutil"
 	"log"
+	"os"
 	"shot/internal/utils"
+
+	_ "github.com/lib/pq"
 )
 
 var DB *sql.DB
@@ -30,7 +31,7 @@ func InitDB() {
 }
 
 func runMigrations() {
-	schema, err := ioutil.ReadFile("internal/migrations/schema.sql")
+	schema, err := os.ReadFile("internal/migrations/schema.sql")
 	if err != nil {
 		log.Fatalf("❌ Failed to read schema.sql: %v", err)
 	}
