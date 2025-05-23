@@ -27,7 +27,7 @@ resource "google_compute_global_address" "website_ip" {
 
 # get the managed DNS zone for the domain name
 data "google_dns_managed_zone" "website_zone" {
-  name = "brave.chirag.cloud"
+  name = "luffy-terraform"
 }
 
 # add the ip to the DNS zone
@@ -72,7 +72,7 @@ resource "google_compute_global_forwarding_rule" "website_forwarding_rule" {
   name                  = "website-forwarding-rule"
   load_balancing_scheme = "EXTERNAL"
   ip_address            = google_compute_global_address.website_ip.address
-  ip_protocol           = "tcp"
+  ip_protocol           = "TCP"
   port_range            = "80"
   target                = google_compute_target_http_proxy.website_proxy.self_link
 }
