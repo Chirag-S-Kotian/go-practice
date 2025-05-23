@@ -2,7 +2,7 @@
 
 resource "google_storage_bucket" "website" {
   name     = "chirag117-website117"
-  location = "asia-south1"
+  location = "mumbai"
 }
 
 # make new object public
