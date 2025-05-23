@@ -5,14 +5,6 @@ resource "google_storage_bucket" "website" {
   location = "US"
 }
 
-# make new object public
-resource "google_storage_object_access_control" "public_rule" {
-  bucket = google_storage_bucket.website.name
-  object = google_storage_bucket_object.index.name
-  role   = "READER"
-  entity = "allUsers"
-}
-
 # upload website files to bucket
 resource "google_storage_bucket_object" "index" {
   name   = "index.html"
@@ -20,6 +12,13 @@ resource "google_storage_bucket_object" "index" {
   source = "../website/index.html"
 }
 
+# make new object public
+resource "google_storage_object_access_control" "public_rule" {
+  bucket = google_storage_bucket.website.name
+  object = google_storage_bucket_object.index.name
+  role   = "READER"
+  entity = "allUsers"
+}
 # reserve a static external IP address for the website
 resource "google_compute_global_address" "website_ip" {
   name = "website-ip"
