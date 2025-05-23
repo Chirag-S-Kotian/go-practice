@@ -1,0 +1,91 @@
+<!-- some code for chirag portfolio website -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirag's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="hero-bg">
+        <canvas id="hero-canvas"></canvas>
+        <header>
+            <div class="hero-content">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Chirag Avatar" class="avatar">
+                <h1 class="glow">Welcome to Chirag's Portfolio <i class="fa-solid fa-laptop-code"></i></h1>
+                <p class="subtitle">Full Stack Developer | Open Source Enthusiast | Tech Explorer</p>
+                <div class="social-icons">
+                    <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about"><i class="fa-solid fa-user"></i> About Me</a></li>
+                    <li><a href="#projects"><i class="fa-solid fa-code"></i> Projects</a></li>
+                    <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <main>
+        <section id="about" class="reveal">
+            <h2><i class="fa-solid fa-user"></i> About Me</h2>
+            <p>Hello! I'm Chirag, a passionate developer with experience in various technologies. I love building web apps, exploring AI, and contributing to open source. When I'm not coding, you can find me hiking or playing chess.</p>
+            <div class="skills">
+                <div class="skill-card"><i class="fab fa-js-square"></i> JavaScript</div>
+                <div class="skill-card"><i class="fab fa-python"></i> Python</div>
+                <div class="skill-card"><i class="fab fa-react"></i> React</div>
+                <div class="skill-card"><i class="fab fa-golang"></i> Go</div>
+                <div class="skill-card"><i class="fab fa-docker"></i> Docker</div>
+            </div>
+        </section>
+        <section id="projects" class="reveal">
+            <h2><i class="fa-solid fa-code"></i> Projects</h2>
+            <div class="project-cards">
+                <div class="project-card">
+                    <i class="fa-solid fa-robot project-icon"></i>
+                    <h3>AI Storyteller</h3>
+                    <p>An AI-powered app that generates interactive stories. Built with Rust and React.</p>
+                    <a href="#" class="project-link">View on GitHub <i class="fa-brands fa-github"></i></a>
+                </div>
+                <div class="project-card">
+                    <i class="fa-solid fa-cloud project-icon"></i>
+                    <h3>Cloud Infra Manager</h3>
+                    <p>Automates cloud infrastructure using Terraform and Go. Features real-time monitoring.</p>
+                    <a href="#" class="project-link">View on GitHub <i class="fa-brands fa-github"></i></a>
+                </div>
+                <div class="project-card">
+                    <i class="fa-solid fa-list-check project-icon"></i>
+                    <h3>Todo API</h3>
+                    <p>RESTful API for todo apps, built with Go and PostgreSQL. Includes JWT auth.</p>
+                    <a href="#" class="project-link">View on GitHub <i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="reveal">
+            <h2><i class="fa-solid fa-envelope"></i> Contact Me</h2>
+            <form action="#" method="post" class="contact-form">
+                <div class="form-group">
+                    <label for="name"><i class="fa-solid fa-user"></i> Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fa-solid fa-at"></i> Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message"><i class="fa-solid fa-message"></i> Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Chirag's Portfolio. All rights reserved. <span class="footer-icons"><i class="fab fa-github"></i> <i class="fab fa-linkedin"></i> <i class="fab fa-twitter"></i></span></p>
+    </footer>
