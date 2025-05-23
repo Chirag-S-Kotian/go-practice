@@ -2,13 +2,13 @@
 
 resource "google_storage_bucket" "website" {
   name     = "chirag117-website117"
-  location = "mumbai"
+  location = "US"
 }
 
 # make new object public
 resource "google_storage_object_access_control" "public_rule" {
   bucket = google_storage_bucket.website.name
-  object = google_storage_bucket_object.index
+  object = google_storage_bucket_object.index.name
   role   = "READER"
   entity = "allUsers"
 }
